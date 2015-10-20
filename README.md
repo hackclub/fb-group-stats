@@ -1,5 +1,7 @@
 # fb-group-stats
 
+Make process calls the parse deploy tool, so it needs the [parse deploy tool](https://parse.com/apps/quickstart#cloud_code/) to be installed.
+
 Run `make build` to compile
 
 `make deploy` to deploy
