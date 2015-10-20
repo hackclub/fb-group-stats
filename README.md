@@ -11,4 +11,4 @@ Before building, make sure the following environment variables:
 - `FBTOKEN` - facebook access token
 - `GROUPID` - facebook group ID
 
-After deploying, make sure to set up the `grabAllPosts` [background job](http://blog.parse.com/announcements/introducing-background-jobs/) to grab all the posts from your facebook group every day.
+After deploying, make sure to set up the `grabFacebookPosts` [background job](http://blog.parse.com/announcements/introducing-background-jobs/) to grab all the posts from your facebook group every day.
