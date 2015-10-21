@@ -18,3 +18,33 @@ Use the [graph API explorer](https://developers.facebook.com/tools/explorer/) to
 
 
 Once you're ready to make a more permanent access token, [make a facebook app](https://developers.facebook.com/docs/apps/register), set the permissions you need, and click debug on the [app's access token](https://developers.facebook.com/tools/accesstoken/) so you can get to the page that allows you to `Extend Access Token` 
+
+##Check group activity
+
+####Easy Range - (Days Back,Days Forward)
+Example: If I want to look back to last month, daysBack = 60 and daysForward = 30. If I want to look at this week, daysBack = 7 and daysForward = 7.
+
+ `curl -X POST \
+  -H "X-Parse-Application-Id: _PARSEAPPID_" \
+  -H "X-Parse-REST-API-Key: _PARSEAPIKEY_" \
+  -H "Content-Type: application/json" \
+  -d '{"daysBack": _daysBack_, "daysForward": _daysForwardFromThere_}' \
+  https://api.parse.com/1/functions/countItems`
+  
+####Exact Range - (Start Date,End Date)
+Specify the specific range to get a count. startDate and endDate are both [Javascript Date Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date).
+
+ curl -X POST \
+  -H "X-Parse-Application-Id: _PARSEAPPID_" \
+  -H "X-Parse-REST-API-Key: _PARSEAPIKEY_" \
+  -H "Content-Type: application/json" \
+  -d '{"beginDate": _startDate_, "endDate": _endDate_}' \
+  https://api.parse.com/1/functions/countItemsWithDateRanges
+  
+You can find your _PARSEAPPID_ and _PARSEAPIKEY_ in your Parse dashboard for your App.
+
+
+  
+
+
+
