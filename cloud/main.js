@@ -91,6 +91,37 @@ Parse.Cloud.define("requestMe", function(request, response) {
 	});
 })
 
+Parse.Cloud.job("grabFacebookPosts", function(request, response) {
+	var token = "${FBTOKEN}"
+	var groupID = "${GROUPID}"
+	Parse.Cloud.httpRequest({
+	  url: 'https://graph.facebook.com/v2.4/' + groupID + '/feed?limit=500&access_token=' + token
+	}).then(function(httpResponse) {
+
+
+	  // success
+	  var json_result = JSON.parse(httpResponse.text)
+	  var postArray = json_result.data
+
+	  makeListOfPostsAndSave(postArray, function(success, error) {
+		if (error == null) {
+			response.success(success)
+		} else {
+			response.success(error)
+		}
+	  })
+
+
+	  //response.success(json_result.data)
+
+	  // var first_item = json_result.data[0]
+	  // response.success(json_result.data.length)
+	},function(httpResponse) {
+	  // error
+	  response.error('Request failed with response code ' + httpResponse.status);
+	});
+})
+
 var removeDuplicateItems = function (callback) {
   Parse.Cloud.useMasterKey();
   var _ = require("underscore");
