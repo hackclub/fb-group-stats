@@ -17,4 +17,4 @@ After deploying, make sure to set up the `grabFacebookPosts` [background job](ht
 Use the [graph API explorer](https://developers.facebook.com/tools/explorer/) to get a temporary access token for testing. This token will expire in one hour.
 
 
-Once you're ready to make a more permanent access token, make a facebook app, set the permissions you need, and click debug on the [app's access token](https://developers.facebook.com/tools/accesstoken/) so you can get to the page that allows you to `Extend Access Token` 
+Once you're ready to make a more permanent access token, [make a facebook app](https://developers.facebook.com/docs/apps/register), set the permissions you need, and click debug on the [app's access token](https://developers.facebook.com/tools/accesstoken/) so you can get to the page that allows you to `Extend Access Token` 
